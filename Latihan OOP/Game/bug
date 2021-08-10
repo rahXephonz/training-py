@@ -1,0 +1,45 @@
+while running:
+        game = Game()
+        screen = game.screen()
+        game.logo()          
+
+        screen.blit(castle, (0, 30))
+        screen.blit(castle, (0, 135))
+        screen.blit(castle, (0, 240))
+        screen.blit(castle, (0, 345))
+    
+        screen.blit(player, playerpos)
+
+        pygame.display.flip()
+
+    for event in pygame.event.get():
+
+        if event.type == pygame.QUIT:
+            pygame.quit()
+            exit(0)
+        if event.type == pygame.KEYDOWN:
+            if event.key == K_w:
+                keys["top"] == True
+            elif event.key == K_a:
+                keys["left"] == True
+            elif event.key == K_s:
+                keys["top"] == True
+            elif event.key == K_d:
+                keys["right"] == True
+        if event.type == pygame.KEYUP:
+            if event.key == K_w:
+                keys["top"] == False
+            elif event.key == K_a:
+                keys["left"] == False
+            elif event.key == K_s:
+                keys["top"] == False
+            elif event.key == K_d:
+                keys["right"] == False  
+    if keys["top"]:
+        playerpos[1] -= 5
+    elif keys["bottom"]:
+        playerpos[1] += 5
+    if keys["left"]:
+        playerpos[0] -= 5
+    elif keys["right"]:
+        playerpos[0] += 5
